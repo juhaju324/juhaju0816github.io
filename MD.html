@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>멤버 페이지 - 아티스트 웹사이트</title>
+  <style>
+    /* 기본 리셋 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background: #fff;
+    }
+
+    /* 상단 내비게이션 버튼 */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-buttons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between; /* 좌우 끝에 배치 */
+      align-items: center;
+      background: rgb(255, 255, 255);
+      padding: 15px 40px;
+      max-width: 1980px;
+      margin: 0 auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* 왼쪽 홈 버튼 */
+    .nav-left a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 오른쪽 나머지 버튼들 */
+    .nav-right {
+      display: flex;
+      gap: 50px;
+    }
+    .nav-right a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 멤버 섹션 */
+    .member-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 100px auto 40px;
+      padding: 0 20px;
+    }
+    .member-info {
+      flex: 1 1 400px;
+    }
+    .member-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    .member-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      white-space: pre-line;
+    }
+
+    .member-image {
+      flex: 1 1 400px;
+    }
+    .member-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ✅ 갤러리 섹션 추가 */
+    .gallery {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .gallery h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+    .gallery-item p {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* 반응형 */
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .member-section {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-buttons a {
+        width: 40px;
+        height: 40px;
+      }
+      .member-info h2 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 내비버튼 -->
+  <section class="hero">
+    <div class="nav-buttons">
+      <div class="nav-left">
+                <a href="index.html"><img src="yblogo.png" alt="홈" /></a>
+
+      </div> <div class="nav-right">
+        <a href="member.html"><img src="member.jpg" alt="멤버" /></a>
+        <a href="album.html"><img src="music.jpg" alt="앨범" /></a>
+        <a href="gall.html"><img src="gall.jpg" alt="갤러리" /></a>
+        <a href="MD.html"><img src="MD.jpg" alt="MD" /></a>
+        <a href="concert.html"><img src="con.jpg" alt="콘서트일정" /></a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- MD들 -->
+  <section class="gallery">
+    <h2>YB CONCERT MD</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="1후드.jpg" alt="사진1"><p>후드집업 60,000</p></div>
+      <div class="gallery-item"><img src="2티셔츠.jpg" alt="사진2"><p>업사이클링 반팔티 35,000</p></div>
+      <div class="gallery-item"><img src="3볼캡.jpg" alt="사진3"><p>볼캡 30,000</p></div>
+      <div class="gallery-item"><img src="4키링.jpg" alt="사진4"><p>업사이클링 키링 20,000</p></div>
+      <div class="gallery-item"><img src="5캔들.jpg" alt="사진5"><p>캔들 15,000</p></div>
+      <div class="gallery-item"><img src="오프너키링.png" alt="사진6"><p>오프너키링 10,000</p></div>
+      <div class="gallery-item"><img src="피크.png" alt="사진7"><p>기타피크 10,000</p></div>
+      <div class="gallery-item"><img src="키링.png" alt="사진8"><p>기타 키링 20,000</p></div>
+      <div class="gallery-item"><img src="티셔추.png" alt="사진9"><p>꿀파티 티셔츠 33,000</p></div>
+      <div class="gallery-item"><img src="키링세트.png" alt="사진9"><p>YB키링세트 13,000</p></div>
+      <div class="gallery-item"><img src="짐색.png" alt="사진9"><p>꿀파티 짐색 22,000</p></div>
+      
+    </div>
+  </section>
+
+</body>
+</html>

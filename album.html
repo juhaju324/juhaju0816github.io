@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>앨범</title>
+  <style>
+  body {
+    background: #fff;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+  }
+
+  /* ===== 네비게이션 ===== */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .nav-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    padding: 15px 40px;
+    max-width: 1980px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+
+  .nav-left a img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 50px;
+  }
+  .nav-right a img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* ===== 메인 플레이어 ===== */
+  .player-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0 60px;
+    gap: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .album {
+    position: relative;
+    width: 300px;
+  }
+
+  .album img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .prev-album, .next-album {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .prev-album { left: 10%; transform: translateY(-50%) rotateY(20deg); }
+  .next-album { right: 10%; transform: translateY(-50%) rotateY(-20deg); }
+
+  .prev-album:hover, .next-album:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .prev-album img, .next-album img {
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .info {
+    max-width: 400px;
+    text-align: center;
+  }
+  .info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  .info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .controls button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .progress {
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #333;
+  }
+
+  /* ✅ 가사 블록 (플레이어 하단에 표시) */
+  .lyrics-section {
+    text-align: center;
+    padding: 40px 20px 80px;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+  }
+
+  .lyrics-section h2 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 20px;
+  }
+
+  .lyrics-section pre {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    white-space: pre-line;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+</style>
+</head>
+<body>
+
+<!-- 상단 내비게이션 -->
+<section class="hero">
+  <div class="nav-buttons">
+    <div class="nav-left">
+              <a href="index.html"><img src="yblogo.png" alt="홈" /></a>
+
+    </div> <div class="nav-right">
+        <a href="member.html"><img src="member.jpg" alt="멤버" /></a>
+        <a href="album.html"><img src="music.jpg" alt="앨범" /></a>
+        <a href="gall.html"><img src="gall.jpg" alt="갤러리" /></a>
+        <a href="MD.html"><img src="MD.jpg" alt="MD" /></a>
+        <a href="concert.html"><img src="con.jpg" alt="콘서트일정" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- 플레이어 -->
+<section class="player-section">
+  <div class="prev-album" onclick="prevSong()">
+    <img id="prev-img" src="loved.png" alt="이전 앨범">
+  </div>
+
+  <div class="album">
+    <img id="album-img" src="odyssey.jpg" alt="앨범 이미지">
+  </div>
+
+  <div class="info">
+    <h2 id="title">Voyeurist</h2>
+    <h3 id="artist">YB</h3>
+    <p id="desc">Odyssey • Metal • 2025</p>
+
+    <div class="controls">
+      <audio id="song" src="Voyeurist.mp3"></audio>
+      <button onclick="prevSong()">⏮</button>
+      <button onclick="song.play()">▶</button>
+      <button onclick="song.pause()">⏸</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+    
+    <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+  </div>
+
+  <div class="next-album" onclick="nextSong()">
+    <img id="next-img" src="butterfly.jpg" alt="다음 앨범">
+  </div>
+</section>
+
+<!-- ✅ 가사 섹션 (플레이어 바로 아래 위치) -->
+<section class="lyrics-section">
+  <h2>가사</h2>
+  <pre id="lyrics">어둠 속을 헤매는 나의 시선
+진실을 찾아 나서는 여행
+거짓의 벽을 넘어 자유로워지리</pre>
+</section>
+
+<script>
+  const songs = [
+    { title: "Voyeurist", artist: "YB", desc: "Odyssey • Metal • 2025", file: "Voyeurist.mp3", img: "odyssey.jpg", 
+      lyrics: "stop voyerising and staring at me" },
+    { title: "생일", artist: "YB", desc: "Twilight State • Rock • 2019", file: "birthday.mp3", img: "birthday.png", 
+      lyrics: "오늘은 다시 나의 생일" },
+    { title: "사랑했나봐", artist: "YB", desc: "Difference • Ballad • 2010", file: "loved.mp3", img: "loved.png", 
+      lyrics: "하지만 그 사람은 네가 아니라서 왠지 슬플 것 같아" },
+    { title: "Stay Alive", artist: "YB", desc: "Stay Alive • Rock • 2018", file: "stayalive.mp3", img: "stayalive.png", 
+      lyrics: "stay alive" },
+    { title: "칼", artist: "YB", desc: "Reel Impulse • Rock • 2013", file: "karl.mp3", img: "karl.png", 
+      lyrics: "무엇이 무뎌진 걸까 칼날이 무뎌진 건가" },
+    { title: "잊을게", artist: "YB", desc: "Stream • Rock • 2010", file: "forgetyou.mp3", img: "forgetyou.png", 
+      lyrics: "아직도 휴대폰의 네 이름 지우지도 못 하고 있어" }
+  ];
+
+  let current = 0;
+  const song = document.getElementById("song");
+  const albumImg = document.getElementById("album-img");
+  const title = document.getElementById("title");
+  const artist = document.getElementById("artist");
+  const desc = document.getElementById("desc");
+  const lyrics = document.getElementById("lyrics");
+  const nextImg = document.getElementById("next-img");
+  const prevImg = document.getElementById("prev-img");
+  const progressBar = document.getElementById("progress-bar");
+
+  function loadSong() {
+    const track = songs[current];
+    song.src = track.file;
+    albumImg.src = track.img;
+    title.textContent = track.title;
+    artist.textContent = track.artist;
+    desc.textContent = track.desc;
+    lyrics.textContent = track.lyrics;
+    nextImg.src = songs[(current + 1) % songs.length].img;
+    prevImg.src = songs[(current - 1 + songs.length) % songs.length].img;
+  }
+
+  function nextSong() {
+    current = (current + 1) % songs.length;
+    loadSong();
+    song.play();
+  }
+
+  function prevSong() {
+    current = (current - 1 + songs.length) % songs.length;
+    loadSong();
+    song.play();
+  }
+
+  song.addEventListener("ended", nextSong);
+
+  song.addEventListener("timeupdate", function() {
+    if (song.duration) {
+      let progress = (song.currentTime / song.duration) * 100;
+      progressBar.style.width = progress + "%";
+    }
+  });
+
+  loadSong();
+</script>
+
+</body>
+</html>

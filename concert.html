@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>멤버 페이지 - 아티스트 웹사이트</title>
+  <style>
+    /* 기본 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* 위에 버튼들 */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-buttons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgb(255, 255, 255);
+      padding: 15px 40px;
+      max-width: 1980px;
+      margin: 0 auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* 왼홈 */
+    .nav-left a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 오른홈 */
+    .nav-right {
+      display: flex;
+      gap: 50px;
+    }
+    .nav-right a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 콘서트일정 */
+    .member-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .member-info {
+      flex: 1 1 400px;
+    }
+    .member-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    .member-info p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      white-space: pre-line; /* 줄바꿈 유지 */
+    }
+
+    .concert-image img {
+  width: 350px;   /* 크기 고정 */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  float: right;   /* 오른쪽 정렬 */
+  margin-left: 20px; /* 글씨랑 조금 띄움 */
+}
+
+
+
+    
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .member-section {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .nav-buttons a {
+        width: 40px;
+        height: 40px;
+      }
+      .member-info h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 내비게이션 버튼 -->
+  <section class="hero">
+    <div class="nav-buttons">
+      <div class="nav-left">
+                <a href="index.html"><img src="yblogo.png" alt="홈" /></a>
+
+      </div> <div class="nav-right">
+        <a href="member.html"><img src="member.jpg" alt="멤버" /></a>
+        <a href="album.html"><img src="music.jpg" alt="앨범" /></a>
+        <a href="gall.html"><img src="gall.jpg" alt="갤러리" /></a>
+        <a href="MD.html"><img src="MD.jpg" alt="MD" /></a>
+        <a href="concert.html"><img src="con.jpg" alt="콘서트일정" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 콘 -->
+  <section class="member-section">
+    <div class="member-info">
+      <h2>2025.11~미정</h2>
+      <h2>YB Remastered 3.0 Concert</h2>
+      <h3>- Transcendent (체육관형) </h3><br>
+
+<p> 서울 : 2025년 11월 22일(토) ~ 11월 23일(일) 
+
+대구 : 2025년 12월 20일 (토) @ 대구 엑스코 </p> <br> <br>
+
+<h3>- Odyssey (공연장형) </h3> <br>
+
+<p> 안산 : 2025년 11월 29일(토) ~ 11월 30일(일) @ 장충체육관 
+
+창원 : 2025년 12월 06일(토) ~ 12월 07일(일) @ 문화예술의전당 
+
+수원 : 2025년 12월 13일(토) ~ 12월 14일(일) @ KBS창원홀 
+
+고양 : 2025년 12월 24일(수) ~ 25일(목) @ 고양아람누리 
+
+부산 : 2025년 12월 27일(토) ~ 28일(일) @ 벡스코 오디토리움 </p><br>
+
+<h3> 예매처 </h3>
+<a href="https://tickets.interpark.com/contents/search?keyword=yb&sort=BUY_COUNT_DESC&referrer=search_ticket_shortcut_keyword"> < NOL티켓링크> </a>
+      
+    </div>
+    <div class="concert-image">
+      <img src="concert.png" alt="poster" />
+    </div>
+  </section>
+  <br>
+
+
+  <section class="member-section">
+    <div class="member-info">
+      <h2>2025.8.19</h2>
+      <h2>YB Odyssey Concert</h2>
+      <h3>- Odyssey (클럽형) </h3> <br>
+      <p>서울 : 2025년 8월 19일(화) @롤링홀 
+
+      크로아티아 : 2025년 8월 23일 
+
+      크로아티아 : 2025년 8월 25일 ~ 26일 
+
+      크로아티아 : 2025년 8월 31일 </p>
+           
+            
+                 
+                 <br>
+                 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+                 <h3> 예매처 </h3>
+<a href="file:///C:/example/concert.html"> < 멜론티켓링크> </a> <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+      
+    </div>
+    <div class="concert-image">
+      <img src="odysseycon.png" alt="poster" />
+    </div>
+  </section>
+
+  <section class="member-section">
+    <div class="member-info">
+      <h2>2025.4.5~6</h2>
+      <h2>YB Honey Party! </h2>
+      <h3>- YB VS YBeez (클럽형) </h3> <br>
+      서울 : 2025년 4월 5일(토) ~6일(일) @춘천상상마당
+          <br>
+           <br>
+            <br>
+             <br>
+              <br>
+               <br>
+                <br>
+                 <br>
+                 <br>
+               <br>
+                 <br>
+                 <h3> 예매처 </h3>
+<a href="https://ticket.melon.com/performance/index.htm?prodId=211044"> < 멜론티켓링크> </a> <br>
+<br>
+<br>
+<br>
+
+      
+    </div>
+    <div class="concert-image">
+      <img src="honey.png" alt="poster" />
+    </div>
+  </section>

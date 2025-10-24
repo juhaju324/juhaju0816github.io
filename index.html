@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>아티스트 웹사이트</title>
+  <style>
+    /* 기본 리셋 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* 상단 이미지 */
+    .hero {
+      width: 100%;
+      position: relative; /* 버튼 위치 위해 추가 */
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 내비게이션 버튼 컨테이너를 flex로 좌우 분리 */
+    .nav-buttons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between; /* 좌우 끝에 배치 */
+      align-items: center;
+      background: rgb(255, 255, 255);
+      padding: 15px 40px;
+      max-width: 1980px;
+      margin: 0 auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* 왼쪽 홈 버튼 */
+    .nav-left a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 오른쪽 나머지 버튼들 */
+    .nav-right {
+      display: flex;
+      gap: 50px;
+    }
+    .nav-right a img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* 아티스트 섹션: 사진 + 오른쪽 텍스트 */
+    .artist-section {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 80px 20px 40px 20px;
+    }
+    .artist-image {
+      flex: 1 1 300px;
+    }
+    .artist-image img {
+      width: 70%;
+      height: auto;
+      display: block;
+    }
+    .artist-info {
+      flex: 1 1 300px;
+      padding: 0 20px;
+    }
+    .artist-info h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .artist-info p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* 화살표 버튼 */
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      font-size: 1rem;
+      padding: 10px 10px;
+      cursor: pointer;
+      z-index: 20;
+      user-select: none;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .arrow-btn:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+
+    #prev-btn {
+      left: 10px;
+    }
+
+    #next-btn {
+      right: 10px;
+    }
+
+    /* 반응형 조정 */
+    @media (max-width: 768px) {
+      .artist-section {
+        flex-direction: column;
+        padding: 60px 20px 20px 20px;
+      }
+      .nav-buttons {
+        top: 10px;
+        gap: 12px;
+        padding: 8px 20px;
+      }
+      .nav-left a img,
+      .nav-right a img {
+        width: 40px;
+        height: 40px;
+      }
+      .nav-right {
+        gap: 12px;
+      }
+      .arrow-btn {
+        font-size: 1.5rem;
+        padding: 8px 12px;
+      }
+      #prev-btn {
+        left: 5px;
+      }
+      #next-btn {
+        right: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 이미지 -->
+  <section class="hero">
+    <img id="artist-img" src="yb.jpg" alt="상단 이미지 설명" />
+
+    <!-- 화살표 버튼 -->
+    <button id="prev-btn" class="arrow-btn" aria-label="이전 이미지">&#8592;</button>
+    <button id="next-btn" class="arrow-btn" aria-label="다음 이미지">&#8594;</button>
+
+    <!-- 내비게이션 버튼 -->
+    <div class="nav-buttons">
+      <div class="nav-left">
+                <a href="index.html"><img src="yblogo.png" alt="홈" /></a>
+
+      </div>
+      <div class="nav-right">
+        <a href="member.html"><img src="member.jpg" alt="멤버" /></a>
+        <a href="album.html"><img src="music.jpg" alt="앨범" /></a>
+        <a href="gall.html"><img src="gall.jpg" alt="갤러리" /></a>
+        <a href="MD.html"><img src="MD.jpg" alt="MD" /></a>
+        <a href="concert.html"><img src="con.jpg" alt="콘서트일정" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 아티스트 섹션 -->
+  <section class="artist-section">
+    <div class="artist-image">
+      <img src="smallyb.jpg" alt="아티스트 사진" />
+    </div>
+    <div class="artist-info">
+      <h2>YB(윤도현 밴드)</h2>
+      <p>
+       멤버 :
+윤도현 (보컬), 박태희 (베이스), 김진원 (드럼), 허준 (기타) <br />
+소속사 : 디컴퍼니 <br />
+수상 :
+2023년 한터뮤직어워즈 레전드 록 아이콘상 <br />
+2023년 KBS 연예대상 베스트 챌린지상 <br />
+2019년 소리바다 베스트 케이뮤직 어워즈 락밴드상 <br />
+대표곡 : 나는 나비, 박하사탕, 잊을게
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // 슬라이드 이미지 배열
+    const images = ['yb.jpg', 'dc2.JPG', 'dc4.JPG', 'dc5.JPG', 'dc6.JPG', 'dc7.JPG', 'dc8.JPG']; // 실제 이미지 파일명에 맞게 변경하세요
+    let currentIndex = 0;
+
+    const artistImg = document.getElementById('artist-img');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      artistImg.src = images[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      artistImg.src = images[currentIndex];
+    });
+  </script>
+</body>
+</html>
